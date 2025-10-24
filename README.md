@@ -39,7 +39,7 @@ This MCP server provides a programmatic interface to the Mantis framework, which
 ### Prerequisites
 - Node.js 20+
 - Python 3.9+
-- The Mantis framework installed at `/Users/c0nfig/claude/Mantits`
+- The Mantis framework installed at `/Users/c0nfig/claude/mantis`
 
 ### Quick Start
 
@@ -173,8 +173,11 @@ Add to your Claude Desktop configuration:
     "mantis": {
       "command": "node",
       "args": ["/path/to/mantis-mcp-server/dist/index.js"],
+      "cwd": "/Users/c0nfig/claude/mantis-mcp-server",
       "env": {
-        "MANTIS_PATH": "/Users/c0nfig/claude/Mantits"
+        "MANTIS_PATH": "/Users/c0nfig/claude/mantis",
+        "LOG_LEVEL": "info",
+        "NODE_ENV": "production"
       }
     }
   }

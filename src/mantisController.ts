@@ -67,15 +67,17 @@ export class MantisController {
       if (configExists) {
         const configData = await fs.readFile(this.configPath, 'utf-8');
         this.config = { ...this.config, ...JSON.parse(configData) };
+        logger.info('Loaded existing Mantis configuration');
       } else {
-        // Save default config
-        await this.saveConfig();
+        // Use default config without writing (read-only mode)
+        logger.warn('Config file not found, using defaults (read-only mode)');
       }
 
       logger.info('MantisController initialized');
     } catch (error) {
       logger.error('Failed to initialize MantisController:', error);
-      throw error;
+      // Don't throw - allow server to start with defaults
+      logger.warn('Continuing with default configuration');
     }
   }
 
@@ -85,7 +87,14 @@ export class MantisController {
 
   async configure(params: Partial<MantisConfig>): Promise<MantisConfig> {
     this.config = { ...this.config, ...params };
-    await this.saveConfig();
+    
+    // Try to save, but don't fail if write-protected
+    try {
+      await this.saveConfig();
+      logger.info('Configuration saved to disk');
+    } catch (error) {
+      logger.warn('Could not save config to disk (read-only mode)', error);
+    }
 
     // Restart Mantis process if running
     if (this.mantisProcess) {
@@ -105,9 +114,11 @@ export class MantisController {
   }
 
   private async startMantis(): Promise<void> {
-    const mantisPath = path.join('/Users/c0nfig/claude/Mantits', 'mantis_orchestrator.py');
+    const mantisBasePath = process.env.MANTIS_PATH || '/Users/c0nfig/claude/mantis';
+    const mantisPath = path.join(mantisBasePath, 'mantis_orchestrator.py');
+    const pythonPath = process.env.PYTHON_PATH || '/opt/homebrew/bin/python3';
 
-    this.mantisProcess = spawn('python3', [
+    this.mantisProcess = spawn(pythonPath, [
       mantisPath,
       '--config', this.configPath
     ]);

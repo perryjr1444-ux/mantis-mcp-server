@@ -21,7 +21,7 @@ export class DecoyManager {
   constructor() {
     this.activeDecoys = new Map();
     this.processes = new Map();
-    this.mantisPath = '/Users/c0nfig/claude/Mantits';
+    this.mantisPath = process.env.MANTIS_PATH || '/Users/c0nfig/claude/mantis';
   }
 
   async initialize(): Promise<void> {
@@ -93,7 +93,8 @@ export class DecoyManager {
       args.push('--payload', customPayload);
     }
 
-    const childProcess = spawn('python3', args, {
+    const pythonPath = process.env.PYTHON_PATH || '/opt/homebrew/bin/python3';
+    const childProcess = spawn(pythonPath, args, {
       cwd: this.mantisPath,
       env: { ...process.env, PYTHONUNBUFFERED: '1' }
     });
