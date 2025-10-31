@@ -1,6 +1,26 @@
-# Mantis MCP Server
+```
+███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗███████╗
+████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝
+██╔████╔██║███████║██╔██╗ ██║   ██║   ██║███████╗
+██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║╚════██║
+██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║███████║
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚══════╝
 
-A Model Context Protocol (MCP) server for the Mantis defensive framework - turning LLM vulnerabilities into defensive assets against AI-driven cyberattacks.
+███╗   ███╗ ██████╗██████╗     ███████╗███████╗██████╗ ██╗   ██╗███████╗██████╗
+████╗ ████║██╔════╝██╔══██╗    ██╔════╝██╔════╝██╔══██╗██║   ██║██╔════╝██╔══██╗
+██╔████╔██║██║     ██████╔╝    ███████╗█████╗  ██████╔╝██║   ██║█████╗  ██████╔╝
+██║╚██╔╝██║██║     ██╔═══╝     ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██╔══╝  ██╔══██╗
+██║ ╚═╝ ██║╚██████╗██║         ███████║███████╗██║  ██║ ╚████╔╝ ███████╗██║  ██║
+╚═╝     ╚═╝ ╚═════╝╚═╝         ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝
+```
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![MCP](https://img.shields.io/badge/MCP-1.0-purple.svg)](https://modelcontextprotocol.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> 🛡️ **Model Context Protocol server for Mantis defensive framework**
+>
+> Turning LLM vulnerabilities into defensive assets against AI-driven cyberattacks
 
 ## Overview
 
@@ -39,7 +59,7 @@ This MCP server provides a programmatic interface to the Mantis framework, which
 ### Prerequisites
 - Node.js 20+
 - Python 3.9+
-- The Mantis framework installed at `/Users/c0nfig/claude/mantis`
+- The Mantis framework installed at `/opt/mantis-defense`
 
 ### Quick Start
 
@@ -173,9 +193,9 @@ Add to your Claude Desktop configuration:
     "mantis": {
       "command": "node",
       "args": ["/path/to/mantis-mcp-server/dist/index.js"],
-      "cwd": "/Users/c0nfig/claude/mantis-mcp-server",
+      "cwd": "/opt/mantis-defense-mcp-server",
       "env": {
-        "MANTIS_PATH": "/Users/c0nfig/claude/mantis",
+        "MANTIS_PATH": "/opt/mantis-defense",
         "LOG_LEVEL": "info",
         "NODE_ENV": "production"
       }
