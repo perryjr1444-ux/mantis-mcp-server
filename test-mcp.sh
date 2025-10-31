@@ -5,7 +5,7 @@ echo "Testing Mantis MCP Server..."
 echo "============================"
 echo ""
 
-cd /Users/c0nfig/claude/mantis-mcp-server
+cd /opt/mantis-defense-mcp-server
 
 # Test 1: List tools
 echo "Test 1: Listing available tools..."
@@ -19,7 +19,7 @@ echo '{
   "mcpServers": {
     "mantis": {
       "command": "node",
-      "args": ["/Users/c0nfig/claude/mantis-mcp-server/dist/index.js"]
+      "args": ["/opt/mantis-defense-mcp-server/dist/index.js"]
     }
   }
 }'

@@ -2,7 +2,7 @@
  * Logging utility for Mantis MCP Server
  */
 
-import winston from 'winston';
+import * as winston from 'winston';
 import * as path from 'path';
 import * as fs from 'fs';
 

@@ -7,7 +7,7 @@ The Mantis MCP Server is now installed and ready to use! Here's how to get start
 ## Run the Server
 
 ```bash
-cd /Users/c0nfig/claude/mantis-mcp-server
+cd /opt/mantis-defense-mcp-server
 node dist/index.js
 ```
 
@@ -275,7 +275,7 @@ setInterval(() => {
 | Problem | Solution |
 |---------|----------|
 | Port in use | Change port in `.env` or tool params |
-| Python errors | Activate venv: `source /Users/c0nfig/claude/Mantits/venv/bin/activate` |
+| Python errors | Activate venv: `source /home/ubuntu/claude/Mantits/venv/bin/activate` |
 | Build errors | `rm -rf dist/ && npm run build` |
 | Logs not appearing | Check `logs/mantis-mcp.log` |
 | Decoy won't start | Verify Python dependencies, check ports |
@@ -308,11 +308,11 @@ useTool('list_active_decoys').forEach(decoy => {
 useTool('configure_mantis', { mode: 'monitor' });
 
 # Check server logs
-tail -f /Users/c0nfig/claude/mantis-mcp-server/logs/mantis-mcp.log
+tail -f /opt/mantis-defense-mcp-server/logs/mantis-mcp.log
 
 # Restart server
 # Stop current process, then:
-node /Users/c0nfig/claude/mantis-mcp-server/dist/index.js
+node /opt/mantis-defense-mcp-server/dist/index.js
 ```
 
 ---

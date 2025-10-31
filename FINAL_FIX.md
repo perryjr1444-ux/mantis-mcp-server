@@ -72,21 +72,21 @@ mantis-mcp-error.log
 
 ## Configuration Files Updated
 
-### 1. `/Users/c0nfig/claude/mantis-mcp-server/src/logger.ts`
+### 1. `/opt/mantis-defense-mcp-server/src/logger.ts`
 - Removed Console transport
 - Using absolute paths
 - Debug output to stderr
 
-### 2. `/Users/c0nfig/Library/Application Support/Claude/claude_desktop_config.json`
+### 2. `/home/ubuntu/.config/claude/claude_desktop_config.json`
 ```json
 {
   "mcpServers": {
     "mantis": {
       "command": "node",
-      "args": ["/Users/c0nfig/claude/mantis-mcp-server/dist/index.js"],
-      "cwd": "/Users/c0nfig/claude/mantis-mcp-server",
+      "args": ["/opt/mantis-defense-mcp-server/dist/index.js"],
+      "cwd": "/opt/mantis-defense-mcp-server",
       "env": {
-        "MANTIS_PATH": "/Users/c0nfig/claude/Mantits",
+        "MANTIS_PATH": "/home/ubuntu/claude/Mantits",
         "LOG_LEVEL": "info",
         "NODE_ENV": "production"
       }
@@ -124,7 +124,7 @@ mantis-mcp-error.log
 
 1. **Test manually**
    ```bash
-   cd /Users/c0nfig/claude/mantis-mcp-server
+   cd /opt/mantis-defense-mcp-server
    echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0.0"}}}' | node dist/index.js
    ```
    Should output ONLY JSON, nothing else

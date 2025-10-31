@@ -15,7 +15,7 @@ The Mantis MCP Server has been successfully set up and is ready to use!
 ### Directory Structure
 
 ```
-/Users/c0nfig/claude/mantis-mcp-server/
+/opt/mantis-defense-mcp-server/
 ├── dist/                  # Compiled JavaScript (ready to run)
 ├── src/                   # TypeScript source code
 ├── logs/                  # Log files directory
@@ -34,7 +34,7 @@ The MCP server is ready to use directly with Claude Code:
 
 ```bash
 # The server uses stdio transport, so it's already compatible
-node /Users/c0nfig/claude/mantis-mcp-server/dist/index.js
+node /opt/mantis-defense-mcp-server/dist/index.js
 ```
 
 ### Option 2: Add to Claude Desktop
@@ -48,9 +48,9 @@ Add this to your Claude Desktop MCP configuration:
   "mcpServers": {
     "mantis": {
       "command": "node",
-      "args": ["/Users/c0nfig/claude/mantis-mcp-server/dist/index.js"],
+      "args": ["/opt/mantis-defense-mcp-server/dist/index.js"],
       "env": {
-        "MANTIS_PATH": "/Users/c0nfig/claude/Mantits"
+        "MANTIS_PATH": "/home/ubuntu/claude/Mantits"
       }
     }
   }
@@ -95,14 +95,14 @@ echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}' | node dist/index.js
 ### Rebuild After Changes
 
 ```bash
-cd /Users/c0nfig/claude/mantis-mcp-server
+cd /opt/mantis-defense-mcp-server
 npm run build
 ```
 
 ### View Logs
 
 ```bash
-tail -f /Users/c0nfig/claude/mantis-mcp-server/logs/mantis-mcp.log
+tail -f /opt/mantis-defense-mcp-server/logs/mantis-mcp.log
 ```
 
 ### Update Dependencies
@@ -123,7 +123,7 @@ LOG_LEVEL=info                      # debug, info, warn, error
 LOG_DIR=./logs
 
 # Mantis Framework Path
-MANTIS_PATH=/Users/c0nfig/claude/Mantits
+MANTIS_PATH=/home/ubuntu/claude/Mantits
 
 # Active Defense Settings (use with caution!)
 CALLBACK_IP=10.0.0.1
@@ -180,7 +180,7 @@ echo "FTP_PORT=3121" >> .env
 
 ```bash
 # Activate Mantis virtual environment
-cd /Users/c0nfig/claude/Mantits
+cd /home/ubuntu/claude/Mantits
 source venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -212,7 +212,7 @@ Expected resource usage:
 ## 📚 Additional Resources
 
 - Main README: `README.md`
-- Mantis Framework: `/Users/c0nfig/claude/Mantits/`
+- Mantis Framework: `/home/ubuntu/claude/Mantits/`
 - Research Paper: [arXiv:2410.20911](https://arxiv.org/abs/2410.20911)
 - MCP Documentation: https://modelcontextprotocol.io
 

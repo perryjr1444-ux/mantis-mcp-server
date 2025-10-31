@@ -119,7 +119,7 @@ export class MantisController {
   private async startMantis(): Promise<void> {
     const mantisBasePath = process.env.MANTIS_PATH || '/opt/mantis-defense';
     const mantisPath = path.join(mantisBasePath, 'mantis_orchestrator.py');
-    const pythonPath = process.env.PYTHON_PATH || '${HOMEBREW_BIN}/python3';
+    const pythonPath = process.env.PYTHON_PATH || '/opt/homebrew/bin/python3';
 
     this.mantisProcess = spawn(pythonPath, [
       mantisPath,

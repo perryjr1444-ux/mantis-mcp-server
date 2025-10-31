@@ -18,10 +18,10 @@ The Mantis MCP server has been successfully added to your Claude Desktop configu
     "mantis": {
       "command": "node",
       "args": [
-        "/Users/c0nfig/claude/mantis-mcp-server/dist/index.js"
+        "/opt/mantis-defense-mcp-server/dist/index.js"
       ],
       "env": {
-        "MANTIS_PATH": "/Users/c0nfig/claude/Mantits",
+        "MANTIS_PATH": "/home/ubuntu/claude/Mantits",
         "LOG_LEVEL": "info"
       }
     }
@@ -107,20 +107,20 @@ Once activated, you'll have access to these 10 Mantis tools:
 
 3. **Test Server Manually:**
    ```bash
-   node /Users/c0nfig/claude/mantis-mcp-server/dist/index.js
+   node /opt/mantis-defense-mcp-server/dist/index.js
    ```
    Should start without errors.
 
 4. **Check Mantis Logs:**
    ```bash
-   tail -f /Users/c0nfig/claude/mantis-mcp-server/logs/mantis-mcp.log
+   tail -f /opt/mantis-defense-mcp-server/logs/mantis-mcp.log
    ```
 
 ### Permission Issues
 
 If you see permission errors:
 ```bash
-chmod +x /Users/c0nfig/claude/mantis-mcp-server/dist/index.js
+chmod +x /opt/mantis-defense-mcp-server/dist/index.js
 ```
 
 ### Node.js Not Found
@@ -128,10 +128,10 @@ chmod +x /Users/c0nfig/claude/mantis-mcp-server/dist/index.js
 Ensure Node.js is in PATH:
 ```bash
 which node
-# Should output: /opt/homebrew/bin/node
+# Should output: ${HOMEBREW_BIN}/node
 
 # If not found, add to shell profile:
-echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="${HOMEBREW_BIN}:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
