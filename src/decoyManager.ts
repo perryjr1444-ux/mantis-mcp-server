@@ -93,7 +93,7 @@ export class DecoyManager {
       args.push('--payload', customPayload);
     }
 
-    const pythonPath = process.env.PYTHON_PATH || '${HOMEBREW_BIN}/python3';
+    const pythonPath = process.env.PYTHON_PATH || '/usr/bin/python3';
     const childProcess = spawn(pythonPath, args, {
       cwd: this.mantisPath,
       env: { ...process.env, PYTHONUNBUFFERED: '1' }
